@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="opaque.js"></script>
+    <script defer src="points.js"></script>
+    <script defer src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: rgb(22, 25, 25);
+            color: white;
+            font-family: monospace;
+        }
+        
+        #title {
+            font-size: 30px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            color: lime;
+            margin: 10px;
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        #holder {
+            font-size: 30px;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            color: lime;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        #modify {
+            font-size: 30px;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            margin: 10px;
+            color: rgba(255, 255, 255, 0.4)
+        }
+        
+        #tagHolder {
+            transform: rotate(-90deg) translate(50px, 30px);
+        }
+        
+        .tags {
+            margin-bottom: 4px;
+            font-size: 20px;
+        }
+        
+        #holder input {
+            width: 20px;
+            height: 20px;
+            margin: 20px;
+        }
+        
+        #close {
+            flex: 3;
+            color: red;
+            font-size: 30px;
+            text-align: right;
+            padding: 20px;
+        }
+        
+        #canvas {}
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" onclick="getCoordinates(event)"></canvas>
+    <div id="title">Light in space</div>
+    <div id="modify" onclick="visibility(1)">Modify</div>
+    <div id="holder">
+        <div id="close" onclick="visibility(0)">X</div>
+        <div id="tagHolder">
+            <div class="tags">Rays / not</div>
+            <div class="tags">Fade / not</div>
+            <div class="tags">Reflect / not</div>
+        </div>
+        <div><input type="radio" name="config" value="0" onclick="start()"><label>0 0 0</label></div>
+        <div><input type="radio" name="config" value="1" onclick="start()"><label>0 0 1</label></div>
+        <div><input type="radio" name="config" value="2" onclick="start()"><label>0 1 0</label></div>
+        <div><input type="radio" name="config" value="3" onclick="start()"><label>0 1 1</label></div>
+        <div><input type="radio" name="config" value="4" onclick="start()"><label>1 0 0</label></div>
+        <div><input type="radio" name="config" value="5" onclick="start()"><label>1 0 1</label></div>
+        <div><input type="radio" name="config" value="6" onclick="start()" checked><label>1 1 0</label></div>
+        <div><input type="radio" name="config" value="7" onclick="start()"><label>1 1 1</label></div>
+    </div>
+</body>
+
+</html>
